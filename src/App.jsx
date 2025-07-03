@@ -6,7 +6,7 @@ const App  = () => {
     <div className='w-full overflow-hidden'>
       <Header/>
       <About/>
-       </div>
+       </div>   
   )
 }
  
