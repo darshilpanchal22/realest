@@ -23,7 +23,7 @@ const Navbar = () => {
           RealEstate.
         </div>
 
-        <ul className="hidden md:flex gap-6 text-black font-medium text-sm">
+        <ul className="hidden md:flex gap-6 text-black font-medium text-[15px]">
           {navItems.map((item, i) => (
             <li key={i}>
               <a
