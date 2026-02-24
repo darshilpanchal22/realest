@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div
       id="header"
-      className="relative min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-center w-full"
+      className="relative min-h-screen  bg-cover bg-center flex flex-col items-center justify-center text-center w-full"
       style={{ backgroundImage: "url('/pexels-pripicart-463734.jpg')" }}
     >
       <Navbar />
