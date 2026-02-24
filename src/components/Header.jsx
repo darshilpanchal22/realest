@@ -4,25 +4,29 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div
-      className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col items-center justify-center text-center w-full overflow-hidden"
+      id="header"
+      className="relative min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-center w-full"
       style={{ backgroundImage: "url('/pexels-pripicart-463734.jpg')" }}
-      id="Header"
     >
       <Navbar />
-      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 text-white">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[82px] font-semibold leading-tight pt-24 md:pt-32">
+
+      <div className="absolute inset-0 "></div>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 text-white">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-semibold leading-tight pt-24 md:pt-32">
           Explore Homes That Fit Your Dreams
         </h2>
+
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10 sm:mt-16">
           <a
-            href="#Projects"
-            className="bg-white text-black px-8 py-3 rounded hover:bg-gray-100 transition"
+            href="#projects"
+            className="bg-white text-black px-8 py-3 rounded hover:bg-black hover:text-white transition duration-300"
           >
             Projects
           </a>
           <a
-            href="#Contact"
-            className="bg-black text-white px-8 py-3 rounded hover:bg-gray-900 transition"
+            href="#contact"
+            className="bg-black text-white px-8 py-3 rounded hover:bg-white hover:text-black transition duration-300"
           >
             Contact Us
           </a>

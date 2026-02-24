@@ -7,7 +7,7 @@ const About = () => {
       id="About"
     >
       <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-        About{" "}
+        About{""}
         <span className="underline underline-offset-4 decoration-1 font-light">
           Our Brand
         </span>
