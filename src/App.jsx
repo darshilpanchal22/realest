@@ -4,6 +4,7 @@ import About from "./components/About";
 import Project from "./components/Project";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="w-full overflow-hidden">
@@ -12,6 +13,7 @@ const App = () => {
       <Project />
       <Reviews />
       <Contact />
+      <Footer />
     </div>
   );
 };
