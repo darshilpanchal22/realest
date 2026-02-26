@@ -6,7 +6,6 @@ import About from "./components/About";
 import Project from "./components/Project";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 
@@ -24,7 +23,6 @@ const App = () => {
               <Project />
               <Reviews />
               <Contact />
-              <Footer />
             </div>
           }
         />

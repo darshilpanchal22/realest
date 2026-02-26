@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div
       className="flex flex-col items-center justify-center container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 py-12 w-full overflow-hidden text-center"
-      id="About"
+      id="about"
     >
       <h1 className="text-3xl sm:text-4xl font-bold mb-4">
         About{""}
