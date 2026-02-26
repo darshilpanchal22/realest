@@ -14,17 +14,20 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
+        setFormData((prev) => ({
+            ...prev,
             [e.target.name]: e.target.value,
-        });
+        }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
 
-        if (!formData.email || !formData.password) {
+        const email = formData.email.trim();
+        const password = formData.password.trim();
+
+        if (!email || !password) {
             return setError("All fields are required");
         }
 
@@ -33,28 +36,39 @@ export default function Login() {
 
             const res = await axios.post(
                 "http://localhost:8081/api/auth/login",
-                formData
+                { email, password }
             );
 
-            localStorage.setItem("token", res.data.token);
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user", JSON.stringify(res.data.user));
+                navigate("/");
+            } else {
+                setError("Invalid server response");
+            }
 
-            navigate("/");
         } catch (err) {
-            setError(err.response?.data?.message || "Login failed");
+            if (err.response) {
+                setError(err.response.data.message || "Invalid credentials");
+            } else if (err.request) {
+                setError("Server not responding. Try again later.");
+            } else {
+                setError("Something went wrong");
+            }
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-center text-slate-800 mb-6">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-200 px-4">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                <h2 className="text-3xl font-bold text-center text-black mb-6">
                     Welcome Back
                 </h2>
 
                 {error && (
-                    <div className="bg-red-100 text-red-600 p-2 rounded mb-4 text-sm">
+                    <div className="bg-red-100 text-red-600 p-3 rounded-lg mb-4 text-sm border border-red-200">
                         {error}
                     </div>
                 )}
@@ -66,7 +80,7 @@ export default function Login() {
                         placeholder="Email Address"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <input
@@ -75,23 +89,23 @@ export default function Login() {
                         placeholder="Password"
                         value={formData.password}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-slate-800 text-white py-2 rounded-lg hover:bg-slate-700 transition"
+                        className="w-full bg-black text-white py-2.5 rounded-lg active:scale-95 transition duration-200 shadow-md disabled:opacity-70"
                     >
                         {loading ? "Logging in..." : "Login"}
                     </button>
                 </form>
 
-                <p className="text-sm text-center mt-4">
+                <p className="text-sm text-center mt-6 text-gray-600">
                     Don't have an account?{" "}
                     <span
                         onClick={() => navigate("/signup")}
-                        className="text-slate-800 font-semibold cursor-pointer"
+                        className="text-black font-semibold cursor-pointer hover:underline"
                     >
                         Sign Up
                     </span>

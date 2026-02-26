@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import bgImage from "../assets/pexels-pripicart-463734.jpg"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,8 +41,7 @@ const Header = () => {
     <section
       id="header"
       className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/pexels-pripicart-463734.jpg')" }}
-    >
+      style={{ backgroundImage: `url(${bgImage})` }}    >
       <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-4 sm:px-6 md:px-10 lg:px-20">
           <div

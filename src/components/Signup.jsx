@@ -61,26 +61,28 @@ export default function Signup() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-center text-slate-800 mb-6">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-200 px-4">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+
+                <h2 className="text-3xl font-bold text-center text-black mb-6">
                     Create Account
                 </h2>
 
                 {error && (
-                    <div className="bg-red-100 text-red-600 p-2 rounded mb-4 text-sm">
+                    <div className="bg-red-100 text-red-600 p-3 rounded-lg mb-4 text-sm border border-red-200">
                         {error}
                     </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+
                     <input
                         type="text"
                         name="name"
                         placeholder="Full Name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <input
@@ -89,7 +91,7 @@ export default function Signup() {
                         placeholder="Email Address"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <input
@@ -98,7 +100,7 @@ export default function Signup() {
                         placeholder="Password"
                         value={formData.password}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <input
@@ -107,23 +109,23 @@ export default function Signup() {
                         placeholder="Confirm Password"
                         value={formData.confirmPassword}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
                     />
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-slate-800 text-white py-2 rounded-lg hover:bg-slate-700 transition"
+                        className="w-full bg-black text-white py-2.5 rounded-lg  active:scale-95 transition duration-200 shadow-md"
                     >
                         {loading ? "Creating Account..." : "Sign Up"}
                     </button>
                 </form>
 
-                <p className="text-sm text-center mt-4">
+                <p className="text-sm text-center mt-6 text-gray-600">
                     Already have an account?{" "}
                     <span
                         onClick={() => navigate("/login")}
-                        className="text-slate-800 font-semibold cursor-pointer"
+                        className="text-black font-semibold cursor-pointer hover:underline"
                     >
                         Login
                     </span>
